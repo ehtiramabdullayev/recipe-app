@@ -1,7 +1,6 @@
 package com.springframework.recipe.recipeapp.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * @author Ehtiram_Abdullayev on 07.12.2018
@@ -10,8 +9,26 @@ import javax.persistence.OneToOne;
 @Entity
 public class UnitOfMeasure {
 
-    private String uom;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @OneToOne
-    private Ingredient ingredient;
+    private String description;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
